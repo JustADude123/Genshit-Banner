@@ -46,9 +46,10 @@ async def on_member_update(before, after):
 
     if after.activity != None:
         print(after.name)
-        if len(after.activities) > 1:
-            print(after.activities[1].name)
-            if str(after.activities[1].name).lower() == "genshin impact":
+        if after.activity != None:
+            len(after.activities) > 0
+            print(after.activities[0].name)
+            if str(after.activities[0].name).lower() == "genshin impact":
                 print("banning")
                 try:
                     with open("hall-of-shame.txt", "a+") as f:
@@ -56,12 +57,12 @@ async def on_member_update(before, after):
 
 
                     await after.send(random.choice(messages))
-                    await after.ban(reason='Playing Genshin Impact')
+                    await after.ban(reason='Playing genshit')
                 except discord.errors.Forbidden:
                     print("Not valid permissions")
                     after.send("")
 
-                print(after.activities[1])
+                print(after.activities[0])
 
 
 

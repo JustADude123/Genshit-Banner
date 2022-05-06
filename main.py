@@ -15,9 +15,9 @@ intents.members = True
 client = commands.Bot(command_prefix='!', intents=intents)
 
 messages = [
-    "Stop playing league of legends",
+    "Stop playing genshit",
     "Take a shower",
-    "Among us??? Sussy??? Imposter league of legends?"
+    "Among us??? Sussy??? Imposter genshit?"
 ]
 
 
@@ -48,7 +48,7 @@ async def on_member_update(before, after):
         print(after.name)
         if len(after.activities) > 1:
             print(after.activities[1].name)
-            if str(after.activities[1].name).lower() == "league of legends":
+            if str(after.activities[1].name).lower() == "genshin impact":
                 print("banning")
                 try:
                     with open("hall-of-shame.txt", "a+") as f:
@@ -56,7 +56,7 @@ async def on_member_update(before, after):
 
 
                     await after.send(random.choice(messages))
-                    await after.ban(reason='Playing League of legends')
+                    await after.ban(reason='Playing Genshin Impact')
                 except discord.errors.Forbidden:
                     print("Not valid permissions")
                     after.send("")
